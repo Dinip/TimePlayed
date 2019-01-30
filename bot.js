@@ -3,6 +3,7 @@ const keys = require('./keys.json');
 var beta = keys.beta;
 var selfHost = keys.selfHost;
 var token = keys.botToken;
+var logChannel = keys.logChannelID;
 
 // Require everything
 const Discord = require("discord.js")
@@ -68,27 +69,27 @@ function wrongSyntax(message, command, lang) {
 
 function log(message) {
   if(beta || selfHost) return;
-  var logChannel = client.channels.get("462909240298962944")
+  var logChannel = client.channels.get(logChannel)
   logChannel.send(`\`${message}\``)
   return message;
 }
 
-function postStats() {
-  dbl.postStats(client.guilds.size)
-    .then(err => console.log("Stats posted!"))
-    .catch(err => console.log("Error posting stats"));
-  request.post(
-    `https://discord.bots.gg/api/v1/bots/433625399398891541/stats`,
-    {
-      json: { guildCount: client.guilds.size },
-      headers: {
-        'Authorization': keys.discordbotsToken2
-      }
-    },
-    function (error, response, body) {
-    }
-  );
-}
+// function postStats() {
+//   dbl.postStats(client.guilds.size)
+//     .then(err => console.log("Stats posted!"))
+//     .catch(err => console.log("Error posting stats"));
+//   request.post(
+//     `https://discord.bots.gg/api/v1/bots/433625399398891541/stats`,
+//     {
+//       json: { guildCount: client.guilds.size },
+//       headers: {
+//         'Authorization': keys.discordbotsToken2
+//       }
+//     },
+//     function (error, response, body) {
+//     }
+//   );
+// }
 
 var commands = []
 var playtimeCommands = []

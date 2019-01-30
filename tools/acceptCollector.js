@@ -1,6 +1,7 @@
 var tools = require('./index.js')
+const keys = require('../keys.json')
 module.exports = function(acceptMessage) {
-    const filter = (reaction, user) => reaction.emoji.toString() == "✅" && reaction.message.content.startsWith("​​​​") && reaction.message.author.id == "433625399398891541" && user.id != "433625399398891541"
+    const filter = (reaction, user) => reaction.emoji.toString() == "✅" && reaction.message.content.startsWith("​​​​") && reaction.message.author.id == keys.botClientID && user.id != keys.botClientID
     const collector = acceptMessage.createReactionCollector(filter);
     collector.on('collect', (reaction, user) => {
       user = reaction.users.last()

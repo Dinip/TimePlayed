@@ -1,0 +1,10 @@
+{
+    "beta": false,
+    "selfHost": true,
+    "botToken": "(bot-token)",
+    "botClientID": "(client-id-from-bot)",
+    "logChannelID" : "(channel-to-save-bot-logs)",
+    "mysqlhost": "(database-host)",
+    "mysqlpasswd": "(database-password)",
+    "mysqlusername": "(database-user)"
+}
