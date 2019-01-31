@@ -127,8 +127,7 @@ module.exports = function(obj) {
             return str;
           }
           embed.addField("Total played games", results[0].length, true);
-          var totalTime = results[3][0].time;
-          
+          var totalTime = results[3][0].time; 
           embed.addField("Total time any games played", tools.convert.timeToString(totalTime), true);
           embed.addField("Average daily gaming time per user", tools.convert.timeToString(totalTime / numDays / message.guild.members.size), true);
           embed.addField("Weekly top played games", topListToString(results[2], 7))
@@ -136,7 +135,6 @@ module.exports = function(obj) {
           embed.addField("Total top played games", topListToString(results[0], numDays))
           embed.addField("Online profile", `For more detailed playtime stats, you can visit this server's [online profile](http://www.timeplayed.xyz/server/${message.guild.id}).`)
           return msg.edit(embed);
-          
         })
       } else {
         tools.correctGame.server(handledArgs.game, message.guild.id, function(correctedGame) {
